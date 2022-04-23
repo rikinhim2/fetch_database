@@ -10,7 +10,7 @@ const config = {
     connection: {
       database: 'dvdrental',
       user: 'postgres',
-      password: null,
+      password: 'pw1234',
     },
     pool: {
       min: 2,
