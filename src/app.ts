@@ -4,6 +4,7 @@ import getRentalCount from './query/getRentalCount';
 import { Temporal } from '@js-temporal/polyfill';
 
 const app = express();
+app.use(express.json());
 
 app.get('/', async (_req, res, _next) => {
 
