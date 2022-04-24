@@ -1,7 +1,6 @@
 .env
 node_modules
 dvdrental.tar
-rest_test
 
 # Logs
 logs
