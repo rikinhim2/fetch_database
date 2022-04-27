@@ -1,12 +1,29 @@
 import express, { Request, Response } from 'express';
+import { Temporal } from '@js-temporal/polyfill';
+import cors from 'cors';
+
 import knex from './knex';
 import { query } from 'express-validator';
 import getRentalCount from './query/getRentalCount';
-import { Temporal } from '@js-temporal/polyfill';
 import handlerWrapper from './middleware/handlerWrapper';
 
 const app = express();
 app.use(express.json());
+
+/*const whitelist = ['http://localhost:3000', 'http://localhost:3001'];
+const corsOptions = {
+  origin: function (origin: any, callback: any) {
+    if (whitelist.indexOf(origin) !== -1) {
+      console.log('its inside whitelist');
+      callback(null, true);
+    } else {
+      console.log('origin ' + origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};*/
+
+app.use(cors({ origin: '*' }));
 
 app.get(
   '/requestCount',
