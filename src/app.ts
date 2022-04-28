@@ -10,9 +10,10 @@ import handlerWrapper from './middleware/handlerWrapper';
 const app = express();
 app.use(express.json());
 
-/*const whitelist = ['http://localhost:3000', 'http://localhost:3001'];
+const whitelist = ['http://localhost:3000', 'http://localhost:3001'];
 const corsOptions = {
   origin: function (origin: any, callback: any) {
+    console.log('origin ' + origin);
     if (whitelist.indexOf(origin) !== -1) {
       console.log('its inside whitelist');
       callback(null, true);
@@ -21,9 +22,9 @@ const corsOptions = {
       callback(new Error('Not allowed by CORS'));
     }
   },
-};*/
+};
 
-app.use(cors({ origin: '*' }));
+app.use(cors(corsOptions));
 
 app.get(
   '/requestCount',
