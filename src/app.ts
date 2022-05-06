@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import dotenv from 'dotenv';
 import { Temporal } from '@js-temporal/polyfill';
 import cors from 'cors';
 
@@ -9,6 +10,7 @@ import handlerWrapper from './middleware/handlerWrapper';
 
 const app = express();
 app.use(express.json());
+dotenv.config();
 
 const whitelist = ['http://localhost:3000', 'http://localhost:3001'];
 const corsOptions = {
